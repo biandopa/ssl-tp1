@@ -16,4 +16,17 @@ grep -i 'guerra' breve_historia.txt
 
 echo ""
 echo "e)"
-egrep -o '^La.*(s.|s$)' breve_historia.txt
+egrep -o '^La\b.*(s.|s$)' breve_historia.txt
+
+echo ""
+echo "f)"
+echo "La palabra peronismo aparece $(sed 's/\./.\n/g' breve_historia.txt | sed 's/^ //g' | grep -c 'peronismo') veces"
+
+echo ""
+echo "g)"
+echo "La cantidad de veces de oraciones con las palabras Sarmiento y Rosas es: $(sed 's/\./.\n/g' breve_historia.txt | sed 's/^ //g' | grep -c 'Sarmiento.*Rosas\|Rosas.*Sarmiento')"
+echo "La cantidad de veces de oraciones con las palabras Sarmiento y/o Rosas es: $(sed 's/\./.\n/g' breve_historia.txt | sed 's/^ //g' | grep -c 'Sarmiento.*Rosas\|Rosas.*Sarmiento\|Sarmiento\|Rosas')"
+
+
+echo ""
+echo "h)"
